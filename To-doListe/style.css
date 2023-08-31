@@ -76,8 +76,9 @@ li button {
     padding: 5px;
 }
 
-button img {
+button .img {
     width: 40px;
+    pointer-events: none;
 }
 
 li span {
