@@ -74,6 +74,8 @@ li input {
 li button {
     margin-left: auto;
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 
 button .img {
