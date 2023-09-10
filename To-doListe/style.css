@@ -48,12 +48,12 @@ form button {
 
 .liste-todo {
     list-style-type: none;
-    margin: 20px;
+    margin: 20px auto 0;
     width: 70%;
     max-width: 1200px;
     min-width: 400px;
 }
-
+ 
 li {
     font-size: 20px;
     width: 100%;
