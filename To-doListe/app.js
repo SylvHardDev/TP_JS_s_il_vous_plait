@@ -14,7 +14,7 @@ form.addEventListener("submit", e => {
 })
 
 function rajouterUneTache(text) {
-
+ 
     const todo = {
         text,
         id: Date.now()
@@ -39,9 +39,12 @@ function rajouterUneTache(text) {
         const btn = document.createElement('button');
         btn.addEventListener('click', supprimerTache);
         const img = document.createElement('div');
+        // const img = document.createElement('img');
+        // img.setAttribute("src", "image/X.png")
+        btn.appendChild(img);
         img.className = "img";
         img.innerText = '❌';
-        item.appendChild(img);
+        item.appendChild(btn);
 
         liste.appendChild(item);
         toutesLesTaches.push(item);
