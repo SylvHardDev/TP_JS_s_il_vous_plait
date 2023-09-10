@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1>To-do liste en JavaScript s'il vous plait</h1>
-
-    <form action="">
-        <label for="item">Entrez une action</label>
-        <input type="text" id="item" placeholder="Entrez une action">
-
-        <button type="submit">Envoyer le formulaire</button>
-    </form>
-
-    <ul class="liste-todo">
-
-    </ul>
+    <div class="filtre"></div>
+    <div class="flex">
+        <div class="todo-box">
+            <h1>To-do liste en JS s'il vous plait !!!</h1>
+        
+            <form action="">
+                <label for="item">Entrez une tâche:</label>
+                <div class="enter__task">
+                    <input type="text" id="item" placeholder="Votre tâche a procratinner">
+                    <button type="submit">Ajouter</button>
+                </div>
+                <h2>Tâches :</h2>
+            </form>
+        
+            <ul class="liste-todo"></ul>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>

@@ -39,8 +39,6 @@ function rajouterUneTache(text) {
         const btn = document.createElement('button');
         btn.addEventListener('click', supprimerTache);
         const img = document.createElement('div');
-        // const img = document.createElement('img');
-        // img.setAttribute("src", "image/X.png")
         btn.appendChild(img);
         img.className = "img";
         img.innerText = '❌';
