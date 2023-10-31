@@ -5,6 +5,7 @@
 }
 
 body {
+    /* background: #000; */
     background: linear-gradient(to right, #2200ff, #9900ff);
     font-family: "Lato", sans-serif;
 }
@@ -23,6 +24,8 @@ h1 {
     max-width: 900px;
     min-width: 500px;
     display: flex;
+    border-radius: 20px;
+    box-shadow: 0 1px 16px 0 #202124;
 }
 
 .bloc {
@@ -32,18 +35,161 @@ h1 {
     align-items: center;
     flex-direction: column;
     font-size: 30px;
+    transition: .6s ease;
     padding: 40px;
+
+}
+
+span {
+    position: absolute;
+    display: block;
+}
+
+button:first-child {
+    filter: hue-rotate(225deg);
+}
+
+button:last-child {
+    filter: hue-rotate(90deg);
+}
+
+
+button span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: animate1 1s infinite;
+}
+
+
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: animate2 1s infinite;
+    animation-delay: .25s;
+}
+
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+button span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: animate3 1s infinite;
+    animation-delay: .5s;
+}
+ 
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    } 
+
+    100% {
+        right: 100%;
+    }
+}
+
+
+button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: animate4 1s infinite;
+    animation-delay: .70s;
+}
+
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: 100%;
+    }
+} 
+
+
+button {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #000;
+    /* color: #03e9f4; */
+    font-size: 20px !important;
+    font-weight: lighter;
+    transition: .2s;
+    overflow: hidden;
+    outline: none;
+    border: none;
+}
+
+button:hover {
+    background-color: #03e9f4;
+    color: black;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+    transform: scale(1.1);
+    /* transition: scale .2s; */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:active {
+    transform: scale(1);
 }
 
 .bloc p:nth-child(1) {
-    font-weight: bold;
-    font-size: 35px;
+    font-weight: 300;
+    font-size: 45px;
+    letter-spacing: 1px;
     /* margin-bottom: 15px; */
 }
 
-.bloc:nth-child(1) {
-    border-right: 1px solid #333;
+.bloc.active {
+    box-shadow: 0 1px 6px 0 #222;
+    border-radius: 20px;
+    border: none;
 }
+
+
+
+/* .bloc:nth-child(2) {
+    box-shadow: 0 0px 3px 0 #000;
+    border-radius: 20px;
+} */
 
 .container-btns {
     margin: 0 auto;
@@ -51,6 +197,7 @@ h1 {
     max-width: 900px;
     min-width: 500px;
     display: flex;
+    gap: 50px;
     justify-content: center;
     /* align-items: center; */
 }
