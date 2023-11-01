@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-login {
+    flex-shrink: 0;
+    box-shadow: 0 1px 6px 0 #000;
+    border-radius: 10px;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px;
+    font-size: 40px;
+}
+
+.form-groupe {
+    position: relative;
+}
+
+label {
+    margin: 5px 23px;
+    font-size: 18px;
+    padding: 10px 0 5px 0;
+    display: block;
+    position: relative;
+}
+
+input {
+    display: block;
+    margin: 5px 20px 10px 20px;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0px 2px 0 #000;
+    width: 400px;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.icone-verif {
+    width: 30px;
+    position: absolute;
+    right: 25px;
+    top: 50px;
+    display: none;
+}
+
+.message-alerte {
+    margin: 0 25px;
+    font-weight: 700;
+    text-align: center;
+    color: red;
+    display: none;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    outline: none;
+    border: none;
+    background: rgb(9, 38, 255);
+    width: 90%;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0 1px 6px 0 #000;
+    transition: .2s ease;
+}
+
+button:hover {
+    background-color: rgb(37, 62, 255);
+}
+button:active {
+    background-color: rgb(8, 33, 219);
+}
+
+.ligne {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    display: none;
+}
+
+.l1, .l2, .l3 {
+    width: 30%;
+    height: 3px;
+    margin: 15px 10px 20px;
+    /* background: rgb(255, 156, 9); */
+    position: relative;
+    border-radius: 3px;
+    
+}
+
+.l1 {
+    background: rgb(249, 179, 76);
+    color: rgb(247, 174, 65);
+}
+
+.l2 {
+    background: rgb(255, 81, 0);
+    color: rgb(255, 81, 0);
+}
+
+.l3 {
+    background: rgb(5, 178, 2);
+    color: rgb(5, 178, 2);
+}
+
+.ligne span {
+    position: absolute;
+    font-weight: 700;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
