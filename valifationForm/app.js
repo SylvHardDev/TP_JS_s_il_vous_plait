@@ -117,3 +117,24 @@ inpMdp.addEventListener("input", (e) => {
     allLigne[2].style.display = "none";
   }
 });
+
+// Confirmatio mot de passe
+
+inpConfirme.addEventListener("input", (e) => {
+  if (e.target.value.length === 0) {
+    allImg[3].style.display = "inline";
+    allImg[3].innerText = "❗";
+} else if (e.target.value === valeurInp) {
+    allImg[3].style.display = "inline";
+    allSpan[6].style.display = "none";
+    allImg[3].innerText = "👍";
+  } else if (e.target.value !== valeurInp) {
+    allImg[3].style.display = "inline";
+    allImg[3].innerText = "❗";
+    allSpan[6].style.display = "inline";
+  } else {
+    allImg[3].innerText = "❗";
+  }
+});
+
+// console.log(allSpan[]);
