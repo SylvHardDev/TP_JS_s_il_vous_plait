@@ -14,11 +14,13 @@
             <div class="form-groupe">
                 <label for="utilisateur">Nom d'utilisateur :</label>
                 <input type="text" id="utilisateur" placeholder="Votre nom d'utilisateur" maxlength="24">
+                <p class="key">🙍</p>
                 <p class="icone-verif">👍</p>
                 <span class="message-alerte">Doit être entre 3 à 24 caractères</span>
             </div>
             <div class="form-groupe">
                 <label for="email">Email :</label>
+                <p class="key">📩</p>
                 <input type="email" id="email" placeholder="Entrez votre email">
                 <p class="icone-verif">👍</p>
                 <span class="message-alerte">Rentrez un email valide</span>
@@ -26,6 +28,9 @@
             <div class="form-groupe">
                 <label for="mdp">Mot de passe :</label>
                 <input type="password" id="mdp" placeholder="Entrez mot de passe">
+                <p class="key">🔑</p>
+                <p id="hideMdp" class="voir">🫣</p>
+                <p id="showMdp" class="voir">👀</p>
                 <p class="icone-verif">👍</p>
                 <span class="message-alerte">Doit contenir un symbole, lettre majuscule, chiffre.</span>
                 <div class="ligne">
@@ -37,6 +42,9 @@
             <div class="form-groupe">
                 <label for="mdpconf">Confirmation mot de passe :</label>
                 <input type="password" id="mdpconf" placeholder="Confirmez">
+                <p class="key">🔑</p>
+                <p id="hideConf" class="voir">🫣</p>
+                <p id="showConf" class="voir">👀</p>
                 <p class="icone-verif">👍</p>
                 <span class="message-alerte">Ne correspond pas a votre mot de passe</span>
             </div>

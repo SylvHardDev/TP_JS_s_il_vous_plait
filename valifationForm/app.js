@@ -8,6 +8,38 @@ const allImg = document.querySelectorAll(".icone-verif");
 const allSpan = document.querySelectorAll("span");
 const allLigne = document.querySelectorAll(".ligne div");
 
+const showMdp = document.getElementById("showMdp");
+const showConf = document.getElementById("showConf");
+const hideMdp = document.getElementById("hideMdp");
+const hideConf = document.getElementById("hideConf");
+
+console.log(showMdp, showConf)
+
+//show or not MDP
+
+showMdp.addEventListener('click', () => {
+    inpMdp.setAttribute('type', 'text')
+    hideMdp.style.display = "block"
+    showMdp.style.display = "none"
+})
+
+hideMdp.addEventListener('click', () => {
+    inpMdp.setAttribute('type', 'password')
+    hideMdp.style.display = "none"
+    showMdp.style.display = "block"
+})
+
+showConf.addEventListener('click', () => {
+    inpConfirme.setAttribute('type', 'text')
+    hideConf.style.display = "block"
+    showConf.style.display = "none"
+})
+
+hideConf.addEventListener('click', () => {
+    inpConfirme.setAttribute('type', 'password')
+    hideConf.style.display = "none"
+    showConf.style.display = "block"
+})
 //nom utilisateur validation
 
 inpUtilisateur.addEventListener("input", (e) => {
@@ -124,7 +156,7 @@ inpConfirme.addEventListener("input", (e) => {
   if (e.target.value.length === 0) {
     allImg[3].style.display = "inline";
     allImg[3].innerText = "❗";
-} else if (e.target.value === valeurInp) {
+  } else if (e.target.value === valeurInp) {
     allImg[3].style.display = "inline";
     allSpan[6].style.display = "none";
     allImg[3].innerText = "👍";
