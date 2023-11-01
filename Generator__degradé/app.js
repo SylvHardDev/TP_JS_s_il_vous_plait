@@ -5,7 +5,7 @@ const btns = document.querySelectorAll("button");
 const fond = document.body;
 const containerCouleur = document.querySelector(".container-couleurs");
 //Demarrage
-btnRandom = document.querySelector('.random')
+btnRandom = document.querySelector(".random");
 
 let valCouleurs = ["#BA5370", "#F4E2D8"];
 let inclinaison = 45;
@@ -60,15 +60,36 @@ function rajoutEnleve(e) {
     } else {
       valCouleurs.pop();
       allInputs[allInputs.length - 1].remove();
+      index--;
       fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
     }
   }
+
+  allInputs.forEach((inp) => {
+    inp.addEventListener("input", MAJCOLORS);
+  });
+
 }
 
+allInputs.forEach((inp) => {
+  inp.addEventListener("input", MAJCOLORS);
+});
 
+function MAJCOLORS(e) {
+  let indexEnCours = e.target.getAttribute("data-index");
+  e.target.value = e.target.value.toUpperCase();
+  valCouleurs[indexEnCours - 1] = e.target.value.toUpperCase();
+  e.target.style.background = valCouleurs[indexEnCours - 1];
+  fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+}
 //couleur aleatoires
 
-btnRandom.addEventListener('click', () => {
-    const inputs = document.querySelectorAll('.inp-couleur')
-    
-})
+btnRandom.addEventListener("click", () => {
+  const inputs = document.querySelectorAll(".inp-couleur");
+  for (i = 0; i < valCouleurs.length; i++) {
+    valCouleurs[i] = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    inputs[i].value = valCouleurs[i].toUpperCase();
+    inputs[i].style.background = valCouleurs[i].toUpperCase();
+    fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+  }
+});

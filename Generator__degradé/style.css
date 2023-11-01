@@ -16,7 +16,8 @@ body {
 
 .container-range,
 .container-btn,
-.container-couleurs {
+.container-couleurs,
+.gradient {
     height: auto;
     width: 30%;
     max-width: 400px;
@@ -30,14 +31,26 @@ body {
     flex-direction: column;
 }
 
-input {
+.resultat__gradient {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.inp-range {
+    box-shadow: none;
+}
+
+input{
     width: 100%;
     border-radius: 15px;
     padding: 15px;
     font-size: 25px;
     outline: none;
-    border: 2px solid #f1f1f1;
+    border: none;
+    /* border: 1px solid #f1f1f1; */
     margin: 5px 0;
+    box-shadow: 0 1px 6px 0 rgb(0, 0, 0);
     font-weight: bolder;
 }
 
@@ -46,6 +59,7 @@ input {
 }
 
 button {
+    box-shadow: 0 1px 3px 0 rgb(0, 0, 0);
     border: none;
     outline: none;
     width: 60px;
@@ -76,3 +90,4 @@ span {
     font-size: 20px;
     text-align: center;
 }
+
