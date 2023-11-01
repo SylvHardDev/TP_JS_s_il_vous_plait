@@ -4,6 +4,9 @@ const span = document.querySelector("span");
 const btns = document.querySelectorAll("button");
 const fond = document.body;
 const containerCouleur = document.querySelector(".container-couleurs");
+
+const resultatGradient = document.querySelector(".resultat__gradient");
+
 //Demarrage
 btnRandom = document.querySelector(".random");
 
@@ -12,6 +15,7 @@ let inclinaison = 45;
 let index = 3;
 inputsCouleur[0].value = valCouleurs[0];
 inputsCouleur[1].value = valCouleurs[1];
+resultatGradient.value = `background: linear-gradient(${inclinaison}deg, ${valCouleurs});`;
 
 inputsCouleur[0].style.background = valCouleurs[0];
 inputsCouleur[1].style.background = valCouleurs[1];
@@ -33,6 +37,7 @@ btns.forEach((btn) => {
 
 function rajoutEnleve(e) {
   span.innerText = "";
+  resultatGradient.value = `background: linear-gradient(${inclinaison}deg, ${valCouleurs});`;
 
   const allInputs = document.querySelectorAll(".inp-couleur");
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -68,7 +73,6 @@ function rajoutEnleve(e) {
   allInputs.forEach((inp) => {
     inp.addEventListener("input", MAJCOLORS);
   });
-
 }
 
 inputsCouleur.forEach((inp) => {
@@ -81,6 +85,7 @@ function MAJCOLORS(e) {
   valCouleurs[indexEnCours - 1] = e.target.value.toUpperCase();
   e.target.style.background = valCouleurs[indexEnCours - 1];
   fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+  resultatGradient.value = `background: linear-gradient(${inclinaison}deg, ${valCouleurs});`;
 }
 //couleur aleatoires
 
@@ -91,5 +96,16 @@ btnRandom.addEventListener("click", () => {
     inputs[i].value = valCouleurs[i].toUpperCase();
     inputs[i].style.background = valCouleurs[i].toUpperCase();
     fond.style.background = `linear-gradient(${inclinaison}deg, ${valCouleurs})`;
+
+    // const gradientValiny = `linear-gradient(${inclinaison}deg, ${valCouleurs})`
+    // console.log(gradientValiny);
+
+    // resultatGradient.value = `background: linear-gradient(${inclinaison}deg, ${valCouleurs});`;
+
   }
 });
+
+document.addEventListener('click', () => {
+    inclinaisonToDecimal = Math.floor(inclinaison)
+  resultatGradient.value = `background: linear-gradient(${inclinaisonToDecimal}deg, ${valCouleurs});`;
+})
