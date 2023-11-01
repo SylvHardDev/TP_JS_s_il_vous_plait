@@ -71,7 +71,7 @@ function rajoutEnleve(e) {
 
 }
 
-allInputs.forEach((inp) => {
+inputsCouleur.forEach((inp) => {
   inp.addEventListener("input", MAJCOLORS);
 });
 
