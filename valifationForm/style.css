@@ -98,7 +98,6 @@ button:active {
     justify-content: flex-start;
     align-items: center;
     margin: 0 auto;
-    display: none;
 }
 
 .l1, .l2, .l3 {
@@ -108,7 +107,7 @@ button:active {
     /* background: rgb(255, 156, 9); */
     position: relative;
     border-radius: 3px;
-    
+    display: none;
 }
 
 .l1 {

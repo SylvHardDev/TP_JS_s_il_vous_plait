@@ -40,3 +40,80 @@ inpMail.addEventListener("input", (e) => {
 
 //validation mot de pass
 
+let valeurInp;
+
+const specialCar = /[^a-zA-Z0-9]/;
+const alphabet = /[a-z]/i;
+const chiffres = /[0-9]/;
+
+let objValidation = {
+  symbol: 0,
+  lettre: 0,
+  chiffre: 0,
+};
+
+inpMdp.addEventListener("input", (e) => {
+  valeurInp = e.target.value;
+
+  if (valeurInp.search(specialCar) !== -1) {
+    objValidation.symbol = 1;
+  }
+
+  if (valeurInp.search(alphabet) !== -1) {
+    objValidation.lettre = 1;
+  }
+
+  if (valeurInp.search(chiffres) !== -1) {
+    objValidation.chiffre = 1;
+  }
+
+  if ((e.inputType = "deleteContentBackward")) {
+    if (valeurInp.search(specialCar) === -1) {
+      objValidation.symbol = 0;
+    }
+
+    if (valeurInp.search(alphabet) === -1) {
+      objValidation.lettre = 0;
+    }
+
+    if (valeurInp.search(chiffres) === -1) {
+      objValidation.chiffre = 0;
+    }
+  }
+
+  let testAll = 0;
+
+  for (const property in objValidation) {
+    if (objValidation[property] > 0) {
+      testAll++;
+    }
+  }
+  if (testAll < 3) {
+    allSpan[2].style.display = "inline";
+    allImg[2].style.display = "inline";
+    allImg[2].innerText = "❗";
+  } else {
+    allSpan[2].style.display = "none";
+    allImg[2].innerText = "👍";
+  }
+
+  //force
+
+  if (valeurInp.length <= 6 && valeurInp.length > 0) {
+    allLigne[0].style.display = "block";
+    allLigne[1].style.display = "none";
+    allLigne[2].style.display = "none";
+  } else if (valeurInp.length > 6 && valeurInp.length <= 9) {
+    allLigne[0].style.display = "block";
+    allLigne[1].style.display = "block";
+    allLigne[2].style.display = "none";
+  } else if (valeurInp.length > 9) {
+    allLigne[0].style.display = "block";
+    allLigne[1].style.display = "block";
+    allLigne[2].style.display = "block";
+  } else if (valeurInp.length === 0) {
+    allLigne[0].style.display = "none";
+    allLigne[1].style.display = "none";
+    allLigne[2].style.display = "none";
+  }
+});
