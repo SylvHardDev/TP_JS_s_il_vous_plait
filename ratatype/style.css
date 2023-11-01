@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, #1488cc, #2b32b2);
+}
+
+h2 {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 80px;
+  color: #fff;
+}
+
+.container {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    width: 900px;
+    max-width: 90%;
+    margin: 100px auto 0;
+    color: #333;
+    box-shadow: 0 1px 6px 0 #000000;
+
+}
+
+.phraseAEcrire {
+    margin: 20px 10px;
+    font-size: 25px;
+}
+
+.phrase-test {
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 1px 3px 0 #333;
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
