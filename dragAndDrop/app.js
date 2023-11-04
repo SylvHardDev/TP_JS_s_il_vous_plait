@@ -10,6 +10,8 @@ const images = [
   "1665485013787~2.png",
   "a1bb8f1e884c98b49053c1eedd4c2c16.jpg",
 ];
+const choix = [];
+let photoEnCours;
 
 // console.log(images[0]);
 
@@ -24,6 +26,7 @@ indexPhoto = 0;
 allCases.push(destroy);
 
 base.style.backgroundImage = `url("./images/${images[indexPhoto]}")`;
+photoEnCours = `url("./images/${images[indexPhoto]}")`;
 
 function nvBase() {
   const newBase = document.createElement("div");
@@ -31,6 +34,7 @@ function nvBase() {
   newBase.setAttribute("draggable", "true");
   indexPhoto++;
   newBase.style.backgroundImage = `url("./images/${images[indexPhoto]}")`;
+  photoEnCours = `url("./images/${images[indexPhoto]}")`;
   premierCase.appendChild(newBase);
   base = newBase;
 }
@@ -49,14 +53,26 @@ function dragDrop() {
 
   //destroy
   if (this.id === "destroy") {
-
+    base.remove();
+    nvBase();
+    return;
   }
-  // this.removeEventListener("dragover", dragOver);
-  // this.removeEventListener("dragenter", dragEnter);
-  // this.removeEventListener("drop", dragDrop);
+
+  //verouillage
+
+  this.removeEventListener("drop", dragDrop);
+  this.removeEventListener("dragenter", dragEnter);
+  this.removeEventListener("dragover", dragOver);
 
   this.appendChild(base);
+  this.childNodes[0].setAttribute("draggable", false);
   nvBase();
+  choix.push(photoEnCours);
+  if (choix.length === 3) {
+    setTimeout(() => {
+      alert("Selection terminé");
+    }, 200);
+  }
 }
 
 function dragOver(e) {
