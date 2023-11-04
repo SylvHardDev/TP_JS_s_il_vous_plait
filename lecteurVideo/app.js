@@ -50,4 +50,38 @@ muteBtn.addEventListener("click", () => {
   }
 });
 
-//
+//barre orange
+
+let rect = barreOrange.getBoundingClientRect();
+let largeur = rect.width;
+
+barreOrange.addEventListener("click", (e) => {
+  let x = e.clientX - rect.left;
+  let widthPercent = (x * 100) / largeur;
+  console.log(widthPercent);
+
+  let durationVideo = video.duration;
+
+  video.currentTime = durationVideo * (widthPercent / 100);
+});
+
+window.addEventListener("resize", () => {
+  let rect = barreOrange.getBoundingClientRect();
+  let largeur = rect.width;
+});
+
+video.addEventListener("dblclick", () => {
+  video.requestFullscreen();
+});
+
+// video.addEventListener("click", () => {
+//     video.pause();
+
+//   if (paused) {
+//     video.play();
+//   } 
+// });
+
+fullSreen.addEventListener("click", () => {
+  video.requestFullscreen();
+});
