@@ -15,7 +15,9 @@ let x = canvas.width / 2,
   barreX = (canvas.width - barreWidth) / 2,
   fin = false,
   vitesseX = 5,
-  vitesseY = -5;
+  vitesseY = -5,
+  score = 0;
+
 function dessineBalle() {
   ctx.beginPath();
   ctx.arc(x, y, rayonBalle, 0, Math.PI * 2);
@@ -24,7 +26,7 @@ function dessineBalle() {
   ctx.closePath();
 }
 
-dessineBalle();
+// dessineBalle();
 
 function dessineBarre() {
   ctx.beginPath();
@@ -34,29 +36,29 @@ function dessineBarre() {
   ctx.closePath();
 }
 
-dessineBarre();
+// dessineBarre();
 
 //tableau avec toutes les briques
 
-const birques = [];
+const briques = [];
 
 for (let i = 0; i < nbRow; i++) {
-  birques[i] = [];
+  briques[i] = [];
 
   for (let j = 0; j < nbCol; j++) {
-    birques[i][j] = { x: 0, y: 0, statut: 1 };
+    briques[i][j] = { x: 0, y: 0, statut: 1 };
   }
 }
 
 function dessineBriques() {
   for (let i = 0; i < nbRow; i++) {
     for (let j = 0; j < nbCol; j++) {
-      if (birques[i][j].statut === 1) {
+      if (briques[i][j].statut === 1) {
         let briqueX = j * (largeurBrique + 10) + 35;
         let briqueY = i * (hauteurBrique + 10) + 30;
 
-        birques[i][j].x = briqueX;
-        birques[i][j].x = briqueY;
+        briques[i][j].x = briqueX;
+        briques[i][j].x = briqueY;
 
         ctx.beginPath();
         ctx.rect(briqueX, briqueY, largeurBrique, hauteurBrique);
@@ -68,7 +70,36 @@ function dessineBriques() {
   }
 }
 
-dessineBriques();
+// dessineBriques();
+
+//destruction brique
+
+function collisionDetection() {
+  for (let i = 0; i < nbRow; i++) {
+    for (let j = 0; j < nbCol; j++) {
+      let b = briques[i][j];
+      if (b.statut === 1) {
+        if (
+          x > b.x &&
+          x < b.x + largeurBrique &&
+          y > b.y &&
+          y < b.y + hauteurBrique
+        ) {
+          vitesseY = -vitesseY;
+          b.statut = 0;
+
+          score++;
+          affichageScore.innerHTML = `Score: ${score}`;
+
+          if (score === nbCol * nbRow) {
+            affichageScore.innerHTML = `Perdu ! <br> Clique sur le casse-brique pour recommencer`;
+            fin = true;
+          }
+        }
+      }
+    }
+  }
+}
 
 function dessine() {
   if (fin === false) {
@@ -76,6 +107,7 @@ function dessine() {
     dessineBriques();
     dessineBalle();
     dessineBarre();
+    collisionDetection();
 
     if (x + vitesseX > canvas.width - rayonBalle || x + vitesseX < rayonBalle) {
       vitesseX = -vitesseX;
@@ -103,6 +135,18 @@ function dessine() {
 }
 
 dessine();
+
+// mouvement de la barre
+
+document.addEventListener("mousemove", mouvementSouris);
+
+function mouvementSouris(e) {
+  let posXBarreCanvas = e.clientX - canvas.offsetLeft;
+
+  if (posXBarreCanvas > 35 && posXBarreCanvas < canvas.width - 35) {
+    barreX = posXBarreCanvas - barreWidth / 2;
+  }
+}
 
 //Recomancer
 
