@@ -3,3 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: "Lato", sans-serif;
+    background: linear-gradient(to right ,#3a3b3e, #41414451);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+h1, .score {
+    text-align: center;
+    font-size: 40px;
+    padding: 50px;
+    color: #f1f1f1;
+}
+
+canvas {
+    background: #f1f1f1;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 1px 12px 0 #000;
+    border-radius: 3px;
+}
