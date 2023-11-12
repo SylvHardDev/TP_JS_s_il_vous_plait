@@ -36,8 +36,6 @@ function dessineBarre() {
   ctx.closePath();
 }
 
-// dessineBarre();
-
 //tableau avec toutes les briques
 
 const briques = [];
@@ -70,36 +68,8 @@ function dessineBriques() {
   }
 }
 
-// dessineBriques();
 
-//destruction brique
 
-function collisionDetection() {
-  for (let i = 0; i < nbRow; i++) {
-    for (let j = 0; j < nbCol; j++) {
-      let b = briques[i][j];
-      if (b.statut === 1) {
-        if (
-          x > b.x &&
-          x < b.x + largeurBrique &&
-          y > b.y &&
-          y < b.y + hauteurBrique
-        ) {
-          vitesseY = -vitesseY;
-          b.statut = 0;
-
-          score++;
-          affichageScore.innerHTML = `Score: ${score}`;
-
-          if (score === nbCol * nbRow) {
-            affichageScore.innerHTML = `Perdu ! <br> Clique sur le casse-brique pour recommencer`;
-            fin = true;
-          }
-        }
-      }
-    }
-  }
-}
 
 function dessine() {
   if (fin === false) {
@@ -136,6 +106,59 @@ function dessine() {
 
 dessine();
 
+//destruction brique
+
+function collisionDetection() {
+
+  for(let i = 0; i < nbRow; i++) {
+    for(let j = 0; j < nbCol; j++) {
+
+      let b = briques[i][j];
+      if(b.statut === 1) {
+        if(x > b.x && x < b.x + largeurBrique && y > b.y && y < b.y + hauteurBrique) {
+          vitesseY = -vitesseY
+          b.statut = 0
+
+          score++;
+          affichageScore.innerHTML = `Score : ${score}`
+          
+          if(score === nbCol * nbRow) {
+            affichageScore.innerHTML = `Bravo ! <br> Clique sur le casse-brique pour recommencer`
+            fin = true
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// function collisionDetection() {
+//   for (let i = 0; i < nbRow; i++) {
+//     for (let j = 0; j < nbCol; j++) {
+//       let b = briques[i][j];
+//       if (b.statut === 1) {
+//         if (
+//           x > b.x &&
+//           x < b.x + largeurBrique &&
+//           y > b.y &&
+//           y < b.y + hauteurBrique
+//         ) {
+//           vitesseY = -vitesseY;
+//           b.statut = 0;
+
+//           score++;
+//           affichageScore.innerHTML = `Score: ${score}`;
+
+//           if (score === nbCol * nbRow) {
+//             affichageScore.innerHTML = `Perdu ! <br> Clique sur le casse-brique pour recommencer`;
+//             fin = true;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 // mouvement de la barre
 
 document.addEventListener("mousemove", mouvementSouris);
