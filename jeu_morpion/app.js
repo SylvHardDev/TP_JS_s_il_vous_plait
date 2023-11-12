@@ -19,13 +19,62 @@ const alignementsGagnants = [
 
 let partieEnCours = ["", "", "", "", "", "", "", "", ""];
 
-cellules.forEach(cell => {
-    cell.addEventListener('click', clicSurCase)
-})
+cellules.forEach((cell) => {
+  cell.addEventListener("click", clicSurCase);
+});
 
-function clicSurCase(e){
-    const caseClique = e.target;
-    const caseIndex = caseClique.getAttribute('data-index')
+function clicSurCase(e) {
+  const caseClique = e.target;
+  const caseIndex = caseClique.getAttribute("data-index");
 
-    
+  if (partieEnCours[caseIndex] !== "" || !verouillage) {
+    return;
+  }
+
+  partieEnCours[caseIndex] = joueurEnCours;
+  caseClique.innerHTML = joueurEnCours;
+//   console.log(partieEnCours);
+
+  validationResultats();
+}
+
+function validationResultats() {
+  let finDePartie = false;
+
+  for (let i = 0; i < alignementsGagnants.length; i++) {
+    const checkWin = alignementsGagnants[i];
+
+    let a = partieEnCours[checkWin[0]];
+    let b = partieEnCours[checkWin[1]];
+    let c = partieEnCours[checkWin[2]];
+
+    if (a === "" || b === "" || c === "") {
+      continue;
+    }
+
+    if (a === b && b === c) {
+      finDePartie = true;
+      break;
+    }
+  }
+
+  if (finDePartie) {
+    info.innerText = `Le joueur ${joueurEnCours} a gagné`;
+    verouillage = false;
+    return;
+  }
+
+  let matchNul = !partieEnCours.includes("");
+  if (matchNul) {
+    info.innerText = "Match Nul !!!";
+    verouillage = false;
+    return;
+  }
+
+  changementDeJoueur();
+}
+
+function changementDeJoueur() {
+  joueurEnCours = joueurEnCours === "X" ? "O" : "X";
+  info.innerText = `Au tour du ${joueurEnCours}`;
 }
